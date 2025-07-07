@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|c:\\users\\kiril\\onedrive\\desktop\\\u043A\u043B\u0438\u043A\u0435\u0440\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|solutionrelative:components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|c:\\users\\kiril\\onedrive\\desktop\\\u043A\u043B\u0438\u043A\u0435\u0440\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|c:\\users\\kiril\\onedrive\\desktop\\\u043A\u043B\u0438\u043A\u0435\u0440\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|c:\\users\\kiril\\onedrive\\desktop\\\u043A\u043B\u0438\u043A\u0435\u0440\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{462461A7-212A-4CC3-B25B-3CCB2C08683F}|\u041A\u043B\u0438\u043A\u0435\u0440.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T04:58:32.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T04:56:59.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-27T04:53:55.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Components\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Users\\kiril\\OneDrive\\Desktop\\\u041A\u043B\u0438\u043A\u0435\u0440\\Components\\Pages\\Counter.razor",
+              "RelativeToolTip": "Components\\Pages\\Counter.razor",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAFgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T04:39:06.885Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
