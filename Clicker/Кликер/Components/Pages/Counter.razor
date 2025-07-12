@@ -4,18 +4,26 @@
 
 @code 
 {
-    private int currentCount = 0;
-    int click_plus = 1, rounded = 0, timer1Upgrades = 0, timer2Upgrades = 0;
-    double[] base_cost = new double[] { 15, 120, 1100, 25300, 111000, 1333000, 28000000 };
-    double[] base_cost_timer = new double[] { 100, 1000, 11000, 253000, 1110000, 13330000, 280000000 };
-    private int[] scorePerSec = new int[] { 1, 2 };
+    private ulong currentCount = 0, rounded = 0;
+    int click_plus = 1, timer_plus = 0;
+    int[] grade_count = new int[] { 0, 0, 0, 0, 0, 0, 0 };
+    private double[] base_cost = new double[] { 15, 100, 600, 1500, 4000, 10000, 25000 }, base_cost_timer = new double[] { 200, 600, 2000, 6000, 13000, 38000, 78000 };
+    private int[] scorePerSec = new int[] { 1, 2, 5, 10, 20, 40, 80 };
     Timer? timer1, timer2;
-    private bool isTimer1Active = false;
-    private bool isTimer2Active = false;
+    private bool isTimerActive = false;
 
     public void Button_click()
     {
-        currentCount += click_plus;
+        currentCount += (ulong)click_plus;
+    }
+
+    public double CostClickCalc(double base_cost, int grade_count)
+    {
+        rounded = (ulong)Math.Round(base_cost);
+        currentCount -= rounded;
+        base_cost += base_cost * (Math.Pow(1.07, grade_count));
+        Math.Round(base_cost);
+        return base_cost;
     }
 
     public void Upgrades_click(int flag)
@@ -25,70 +33,57 @@
             case 1:
                 if (currentCount >= base_cost[0])
                 {
-                    rounded = (int)Math.Round(base_cost[0]);
-                    currentCount -= rounded;
-                    base_cost[0] += base_cost[0] * 0.20;
-                    Math.Round(base_cost[0]);
+                    grade_count[0]++;
+                    base_cost[0] = CostClickCalc(base_cost[0], grade_count[0]);
                     click_plus++;
+                    
                 }
                 break;
             case 2:
                 if (currentCount >= base_cost[1])
                 {
-                    rounded = (int)Math.Round(base_cost[1]);
-                    currentCount -= rounded;
-                    base_cost[1] += base_cost[1] * 0.20;
-                    Math.Round(base_cost[1]);
+                    grade_count[1]++;
+                    base_cost[1] = CostClickCalc(base_cost[1], grade_count[1]);
                     click_plus += 2;
                 }
                 break;
             case 4:
                 if (currentCount >= base_cost[2])
                 {
-                    rounded = (int)Math.Round(base_cost[2]);
-                    currentCount -= rounded;
-                    base_cost[2] += base_cost[2] * 0.20;
-                    Math.Round(base_cost[2]);
+                    grade_count[2]++;
+                    base_cost[2] = CostClickCalc(base_cost[2], grade_count[2]);
                     click_plus += 4;
                 }
                 break;
             case 8:
                 if (currentCount >= base_cost[3])
                 {
-                    rounded = (int)Math.Round(base_cost[3]);
-                    currentCount -= rounded;
-                    base_cost[3] += base_cost[3] * 0.20;
-                    Math.Round(base_cost[3]);
+                    grade_count[3]++;
+                    base_cost[3] = CostClickCalc(base_cost[3], grade_count[3]);
                     click_plus += 8;
                 }
                 break;
             case 16:
                 if (currentCount >= base_cost[4])
                 {
-                    rounded = (int)Math.Round(base_cost[4]);
-                    currentCount -= rounded;
-                    base_cost[4] += base_cost[4] * 0.20;
-                    Math.Round(base_cost[4]);
+                    grade_count[4]++;
+                    base_cost[4] = CostClickCalc(base_cost[4], grade_count[4]);
                     click_plus += 16;
                 }
                 break;
             case 32:
                 if (currentCount >= base_cost[5])
                 {
-                    rounded = (int)Math.Round(base_cost[2]);
-                    currentCount -= rounded;
-                    base_cost[5] += base_cost[5] * 0.20;
-                    Math.Round(base_cost[5]);
+                    grade_count[5]++;
+                    base_cost[5] = CostClickCalc(base_cost[5], grade_count[5]);
                     click_plus += 32;
                 }
                 break;
             case 64:
                 if (currentCount >= base_cost[5])
                 {
-                    rounded = (int)Math.Round(base_cost[6]);
-                    currentCount -= rounded;
-                    base_cost[6] += base_cost[6] * 0.20;
-                    Math.Round(base_cost[6]);
+                    grade_count[6]++;
+                    base_cost[6] = CostClickCalc(base_cost[6], grade_count[6]);
                     click_plus += 64;
                 }
                 break;
@@ -97,55 +92,41 @@
 
     public void Upgrades_timer(int flag)
     {
+        if (!isTimerActive)
+        {
+            timer1 = new Timer(1000);
+            timer1.Elapsed += (sender, e) =>
+            {
+                currentCount += (ulong)timer_plus;
+                InvokeAsync(StateHasChanged);
+            };
+            timer1.AutoReset = true;
+            timer1.Start();
+            isTimerActive = true;
+        }
+
         switch (flag)
         {
             case 1:
                 if (currentCount >= base_cost_timer[0])
                 {
-                    rounded = (int)Math.Round(base_cost_timer[0]);
+                    rounded = (ulong)Math.Round(base_cost_timer[0]);
                     currentCount -= rounded;
                     base_cost_timer[0] += base_cost_timer[0] * 0.20;
                     Math.Round(base_cost_timer[0]);
 
-                    timer1Upgrades++;
-
-                    if (!isTimer1Active)
-                    {
-                        timer1 = new Timer(1000);
-                        timer1.Elapsed += (sender, e) =>
-                        {
-                            currentCount += timer1Upgrades;
-                            InvokeAsync(StateHasChanged);
-                        };
-                        timer1.AutoReset = true;
-                        timer1.Start();
-                        isTimer1Active = true;
-                    }
-
+                    timer_plus++; 
                 }
                 break;
             case 2:
                 if (currentCount >= base_cost_timer[1])
                 {
-                    rounded = (int)Math.Round(base_cost_timer[1]);
+                    rounded = (ulong)Math.Round(base_cost_timer[1]);
                     currentCount -= rounded;
                     base_cost_timer[1] += base_cost_timer[1] * 0.20;
                     Math.Round(base_cost_timer[1]);
 
-                    timer2Upgrades += 2;
-
-                    if (!isTimer2Active)
-                    {
-                        timer2 = new Timer(1000);
-                        timer2.Elapsed += (sender, e) =>
-                        {
-                            currentCount += timer2Upgrades;
-                            InvokeAsync(StateHasChanged);
-                        };
-                        timer2.AutoReset = true;
-                        timer2.Start();
-                        isTimer1Active = true;
-                    }
+                    timer_plus += 2;
                 }
                 break;
         }
@@ -153,74 +134,34 @@
 
 }
 
-<PageTitle>Counter</PageTitle>
+<PageTitle>Кликер</PageTitle>
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h1 role="status">Current count: @currentCount</h1>
-            <h2>Current click: @click_plus</h2>
+            <h1 role="status">Количество очков: @currentCount</h1>
+            <h2>Очков за клик: @click_plus</h2>
+            <h2>Очков в секунду: @timer_plus</h2>
             <button class="" @onclick="Button_click">
-                <svg id="circle"></svg>
+                <svg class="circle"></svg>
             </button>
         </div>
         <div class="col-4">
             <div class="upgrades">
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(1)">
-                        <div class="card-body">
-                            <p>Улучшение +1 к нажатию</p>
-                            <span>@Math.Round(base_cost[0], 2)</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(2)">
-                        <div class="card-body">
-                            <p>Улучшение +2 к нажатию</p>
-                            <span>@Math.Round(base_cost[1], 2)</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(4)">
-                        <div class="card-body">
-                            <p>Улучшение +4 к нажатию</p>
-                            <span>@Math.Round(base_cost[2], 2)</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(8)">
-                        <div class="card-body">
-                            <p>Улучшение +8 к нажатию</p>
-                            <span>@Math.Round(base_cost[3], 2)</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(16)">
-                        <div class="card-body">
-                            <p>Улучшение +16 к нажатию</p>
-                            <span>@Math.Round(base_cost[4], 2)</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(32)">
-                        <div class="card-body">
-                            <p>Улучшение +32 к нажатию</p>
-                            <span>@Math.Round(base_cost[5], 2)</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="card">
-                    <button @onclick="() => Upgrades_click(64)">
-                        <div class="card-body">
-                            <p>Улучшение +64 к нажатию</p>
-                            <span>@Math.Round(base_cost[6], 2)</span>
-                        </div>
-                    </button>
-                </div>
+                @for (int i = 0; i < 7; i++)
+                {
+                    int pot = 0;
+                    pot = (int)Math.Pow(2, i);
+                    <div class="card">
+                        <button @onclick="() => Upgrades_click(pot)">
+                            <div class="card-body">
+                                <p>Улучшение +@pot к нажатию</p>
+                                <p>Стоимость: @Math.Round(base_cost[i])</p>
+                                <p>Количество улучшений: @grade_count[i]</p>
+                            </div>
+                        </button>
+                    </div>
+                }
+     
                 <div class="card">
                     <button @onclick="() => Upgrades_timer(1)">
                         <div class="card-body">
