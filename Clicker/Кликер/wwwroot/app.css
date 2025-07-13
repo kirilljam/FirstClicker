@@ -49,3 +49,24 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.floating-score {
+    animation: floatUp 1s ease-out forwards;
+    font-weight: bold;
+    color: gold;
+    font-size: 1.25rem;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes floatUp {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}
