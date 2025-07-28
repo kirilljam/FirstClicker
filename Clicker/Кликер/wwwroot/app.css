@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('font/Faithful.ttf');
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'pixel';
+    font-size: 16px;
 }
 
 a, .btn-link {
@@ -51,10 +57,10 @@ h1:focus {
 }
 
 .floating-score {
-    animation: floatUp 1s ease-out forwards;
+    animation: floatUp 2s ease-out forwards;
     font-weight: bold;
-    color: gold;
-    font-size: 1.25rem;
+    color: black;
+    font-size: 4rem;
     pointer-events: none;
     z-index: 999;
 }
@@ -62,11 +68,28 @@ h1:focus {
 @keyframes floatUp {
     from {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(-40px);
     }
 
     to {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: translateY(-100px);
     }
+}
+
+.main_button {
+    cursor: pointer;
+    height: 450px;
+    width: 450px;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+.button_img {
+    height: 450px;
+    width: 450px;
+}
+.button_img:active {
+    height: 400px;
+    width: 400px;
 }

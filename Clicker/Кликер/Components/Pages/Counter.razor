@@ -16,6 +16,7 @@
 
     public class FloatingScore
     {
+        public Guid Id { get; set; } = Guid.NewGuid();
         public ulong Value { get; set; }
         public string Xpx { get; set; }
         public string Ypx { get; set; }
@@ -29,14 +30,15 @@
         var fx = new FloatingScore
         {
             Value = earned,
-            Xpx = new Random().Next(50, 100) + "px", // Можешь поставить фиксированную точку
+            Xpx = new Random().Next(50, 400) + "px",
             Ypx = new Random().Next(0, 30) + "px"
         };
 
         floatingPoints.Add(fx);
+        InvokeAsync(StateHasChanged); // заставим Blazor сразу обновить DOM
 
         var localFx = fx;
-        _ = Task.Delay(1000).ContinueWith(_ =>
+        _ = Task.Delay(2000).ContinueWith(_ =>
         {
             InvokeAsync(() =>
             {
@@ -44,6 +46,8 @@
                 StateHasChanged();
             });
         });
+
+
     }
 
     public double CostClickCalc(double base_cost, int grade_count)
@@ -125,13 +129,15 @@
             <h2>Очков за клик: @click_plus</h2>
             <h2>Очков в секунду: @timer_plus</h2>
             <div style="position: relative;">
-                <button @onclick="Button_click">Клик!</button>
+                <button class="main_button" @onclick="Button_click">
+                    <img class="button_img" src="/img/Neolith_but.png" alt="Score_Button" />
+                </button>
 
                 @foreach (var fx in floatingPoints)
                 {
-                    var style = $"position:absolute; left:{fx.Xpx}; top:{fx.Ypx};";
+                    var style = $"position:absolute; left:{fx.Xpx}; top:{fx.Ypx}; color: black";
 
-                    <div class="floating-score" style="@style">
+                    <div class="floating-score" style="@style" @key="fx.Id">
                         +@fx.Value
                     </div>
                 }
