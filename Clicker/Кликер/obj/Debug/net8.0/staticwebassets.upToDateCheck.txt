@@ -1,4 +1,7 @@
 wwwroot\bootstrap\bootstrap.min.css
 wwwroot\bootstrap\bootstrap.min.css.map
 wwwroot\favicon.png
+wwwroot\font\Faithful.ttf
+wwwroot\img\Backgroung_neolith.png
+wwwroot\img\Neolith_but.png
 wwwroot\app.css
