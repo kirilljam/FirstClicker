@@ -118,16 +118,19 @@
                 break;
         }
     }
-
+    
 }
 
 <PageTitle>Кликер</PageTitle>
 <div class="container background m-0 min-vw-100 min-vh-100">
-    <div class="row">
-        <div class="col-3 d-flex flex-column align-items-center justify-content-center">
-            <h1 role="status">Количество очков: @currentCount</h1>
-            <h2>Очков за клик: @click_plus</h2>
-            <h2>Очков в секунду: @timer_plus</h2>
+    <div class="row min-vh-100">
+        <div class="col-3 d-flex flex-column align-items-center background_col left_side">
+            <div style="color: white; margin-bottom: 250px; margin-top: 100px;">
+                <p class="info_left" role="status">Количество очков: @currentCount</p>
+                <p class="info_left">Очков за клик: @click_plus</p>
+                <p class="info_left">Очков в секунду: @timer_plus</p>
+            </div>
+            
             <div style="position: relative;">
                 <button class="main_button" @onclick="Button_click">
                     <img class="button_img" src="/img/Neolith_but.png" alt="Score_Button" />
@@ -135,7 +138,7 @@
 
                 @foreach (var fx in floatingPoints)
                 {
-                    var style = $"position:absolute; left:{fx.Xpx}; top:{fx.Ypx}; color: black";
+                    var style = $"position:absolute; left:{fx.Xpx}; top:{fx.Ypx}; color: white";
 
                     <div class="floating-score" style="@style" @key="fx.Id">
                         +@fx.Value
@@ -143,8 +146,8 @@
                 }
             </div>
         </div>
-        <div class="col-7"></div>
-        <div class="col-2">
+        <div class="col-6 background_col"></div>
+        <div class="col-3 background_col">
             <div class="upgrades">
                 @for (int i = 0; i < 7; i++)
                 {
